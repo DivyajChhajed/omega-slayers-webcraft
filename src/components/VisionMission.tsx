@@ -51,7 +51,6 @@ const VisionMission = () => {
                   d="M100,15 A85,85 0 1,1 15,100 A85,85 0 1,1 100,15 z"
                   strokeWidth="2"
                   stroke="rgba(230, 27, 35, 0.3)"
-                  fill="none"
                 />
               </svg>
               <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">Our Mission</h2>
