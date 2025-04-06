@@ -8,6 +8,8 @@ import { cn } from '@/lib/utils';
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -15,18 +17,32 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
+      const currentScrollY = window.scrollY;
+      
+      // Determine if scrolled past threshold
+      if (currentScrollY > 20) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
       }
+      
+      // Determine scroll direction and update visibility
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down - hide navbar
+        setIsVisible(false);
+      } else {
+        // Scrolling up - show navbar
+        setIsVisible(true);
+      }
+      
+      setLastScrollY(currentScrollY);
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [lastScrollY]);
 
   const navLinks = [
     { name: 'Home', path: '/' },
@@ -39,7 +55,10 @@ const Header = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 px-4 py-6">
+    <header className={cn(
+      "fixed top-0 left-0 right-0 z-50 px-4 py-6 transition-transform duration-300",
+      !isVisible && "transform -translate-y-full"
+    )}>
       <div 
         className={cn(
           "container mx-auto rounded-full transition-all duration-300 flex items-center justify-between px-6 py-3",
