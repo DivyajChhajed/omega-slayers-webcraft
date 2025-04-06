@@ -1,7 +1,20 @@
 
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ChevronRight } from 'lucide-react';
+
+const fadeIn = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { 
+      duration: 0.6,
+      ease: "easeOut" 
+    } 
+  }
+};
 
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -52,15 +65,20 @@ const HeroSection = () => {
       ))}
 
       {/* Content */}
-      <div className="relative z-20 h-full flex flex-col justify-center container mx-auto px-4 pt-20">
-        <div className="max-w-3xl animate-fade-in">
+      <div className="relative z-20 h-full flex flex-col justify-center items-center container mx-auto px-4 pt-20">
+        <motion.div 
+          className="max-w-3xl text-center"
+          initial="hidden"
+          animate="visible"
+          variants={fadeIn}
+        >
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 text-white leading-tight">
             {slides[currentSlide].title}
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 mb-8">
             {slides[currentSlide].subtitle}
           </p>
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button className="bg-omega-red hover:bg-omega-red/90 text-white px-8 py-6 text-lg button-glow">
               Our Services
             </Button>
@@ -69,7 +87,7 @@ const HeroSection = () => {
               <ChevronRight className="ml-2 h-5 w-5" />
             </Button>
           </div>
-        </div>
+        </motion.div>
 
         {/* Slide indicators */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2">
