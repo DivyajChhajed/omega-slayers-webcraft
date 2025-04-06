@@ -39,13 +39,15 @@ const Header = () => {
   ];
 
   return (
-    <header 
-      className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        isScrolled ? 'bg-omega-black/90 backdrop-blur-md py-2 shadow-md' : 'bg-transparent py-4'
-      )}
-    >
-      <div className="container mx-auto px-4 flex items-center justify-between">
+    <header className="fixed top-0 left-0 right-0 z-50 px-4 py-6">
+      <div 
+        className={cn(
+          "container mx-auto rounded-full transition-all duration-300 flex items-center justify-between px-6 py-3",
+          isScrolled 
+            ? "bg-omega-black/80 backdrop-blur-md shadow-lg border border-omega-gray/20" 
+            : "bg-transparent"
+        )}
+      >
         <Link to="/" className="flex items-center gap-2">
           <img 
             src="/lovable-uploads/9d380099-8cb4-4a90-bda3-ef227b54930e.png" 
@@ -70,7 +72,7 @@ const Header = () => {
 
         {/* Contact Button - Desktop */}
         <div className="hidden md:block">
-          <Button className="bg-omega-red hover:bg-omega-red/90 text-white button-glow">
+          <Button className="bg-omega-red hover:bg-omega-red/90 text-white button-glow rounded-full">
             Get In Touch
           </Button>
         </div>
@@ -105,7 +107,7 @@ const Header = () => {
                 {link.name}
               </Link>
             ))}
-            <Button className="bg-omega-red hover:bg-omega-red/90 text-white mt-4 w-full button-glow">
+            <Button className="bg-omega-red hover:bg-omega-red/90 text-white mt-4 w-full button-glow rounded-full">
               Get In Touch
             </Button>
           </nav>
