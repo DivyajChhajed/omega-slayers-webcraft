@@ -1,0 +1,173 @@
+
+import { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Mail, Phone, MapPin } from 'lucide-react';
+import { useToast } from '@/hooks/use-toast';
+
+const ContactSection = () => {
+  const { toast } = useToast();
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // This would be replaced with actual form submission logic
+    console.log('Form submitted:', formData);
+    
+    toast({
+      title: "Message Sent!",
+      description: "We'll get back to you as soon as possible.",
+      variant: "default",
+    });
+    
+    // Reset form
+    setFormData({
+      name: '',
+      email: '',
+      subject: '',
+      message: '',
+    });
+  };
+
+  return (
+    <section className="py-20 bg-gradient-to-b from-omega-gray/50 to-omega-black clip-diagonal-reverse">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white">Get In <span className="text-omega-red">Touch</span></h2>
+          <p className="text-gray-400 max-w-2xl mx-auto">
+            Interested in our services or have questions? Reach out to us and our team will get back to you.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div>
+            <div className="bg-omega-gray/20 rounded-lg p-8 mb-8">
+              <h3 className="text-2xl font-bold text-white mb-6">Contact Information</h3>
+              
+              <div className="space-y-6">
+                <div className="flex items-start">
+                  <div className="bg-omega-red/10 p-3 rounded-lg mr-4">
+                    <Mail className="h-6 w-6 text-omega-red" />
+                  </div>
+                  <div>
+                    <p className="text-gray-400 mb-1">Email Us</p>
+                    <a href="mailto:info@omegaslayers.com" className="text-white hover:text-omega-red transition-colors">
+                      info@omegaslayers.com
+                    </a>
+                  </div>
+                </div>
+                
+                <div className="flex items-start">
+                  <div className="bg-omega-red/10 p-3 rounded-lg mr-4">
+                    <Phone className="h-6 w-6 text-omega-red" />
+                  </div>
+                  <div>
+                    <p className="text-gray-400 mb-1">Call Us</p>
+                    <a href="tel:+1234567890" className="text-white hover:text-omega-red transition-colors">
+                      +1 (234) 567-890
+                    </a>
+                  </div>
+                </div>
+                
+                <div className="flex items-start">
+                  <div className="bg-omega-red/10 p-3 rounded-lg mr-4">
+                    <MapPin className="h-6 w-6 text-omega-red" />
+                  </div>
+                  <div>
+                    <p className="text-gray-400 mb-1">Our Office</p>
+                    <address className="text-white not-italic">
+                      123 Esports Avenue,<br />
+                      Gaming District, CA 12345
+                    </address>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="rounded-lg overflow-hidden h-64">
+              {/* This would be replaced with an actual map */}
+              <div className="w-full h-full bg-omega-gray/30 flex items-center justify-center text-gray-400">
+                Map Placeholder
+              </div>
+            </div>
+          </div>
+          
+          <div className="bg-omega-gray/20 rounded-lg p-8">
+            <h3 className="text-2xl font-bold text-white mb-6">Send Us a Message</h3>
+            
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label htmlFor="name" className="text-white">Your Name</label>
+                  <Input
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="bg-omega-gray/30 border-omega-gray/50 text-white"
+                    required
+                  />
+                </div>
+                
+                <div className="space-y-2">
+                  <label htmlFor="email" className="text-white">Your Email</label>
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="bg-omega-gray/30 border-omega-gray/50 text-white"
+                    required
+                  />
+                </div>
+              </div>
+              
+              <div className="space-y-2">
+                <label htmlFor="subject" className="text-white">Subject</label>
+                <Input
+                  id="subject"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  className="bg-omega-gray/30 border-omega-gray/50 text-white"
+                  required
+                />
+              </div>
+              
+              <div className="space-y-2">
+                <label htmlFor="message" className="text-white">Message</label>
+                <Textarea
+                  id="message"
+                  name="message"
+                  rows={5}
+                  value={formData.message}
+                  onChange={handleChange}
+                  className="bg-omega-gray/30 border-omega-gray/50 text-white"
+                  required
+                />
+              </div>
+              
+              <Button type="submit" className="w-full bg-omega-red hover:bg-omega-red/90 text-white button-glow">
+                Send Message
+              </Button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default ContactSection;
