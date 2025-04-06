@@ -1,6 +1,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -80,5 +81,32 @@
 
   .button-glow:hover {
     box-shadow: 0 0 25px rgba(230, 27, 35, 0.8);
+  }
+  
+  /* Loading screen animations */
+  #svg {
+    stroke-dasharray: 4500;
+    stroke-dashoffset: 0;
+  }
+  
+  @keyframes draw {
+    0% {
+      stroke-dashoffset: 4500;
+    }
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+  
+  .name-container {
+    height: 30px;
+    overflow: hidden;
+  }
+  
+  .logo-name {
+    letter-spacing: 12px;
+    text-transform: uppercase;
+    margin-left: 20px;
+    font-weight: bold;
   }
 }
