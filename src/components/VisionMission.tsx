@@ -29,7 +29,15 @@ const VisionMission = () => {
             <div className="relative">
               <div className="absolute -left-4 -top-4 w-24 h-24 border-l-2 border-t-2 border-omega-red"></div>
               <div className="absolute -right-4 -bottom-4 w-24 h-24 border-r-2 border-b-2 border-omega-red"></div>
-              <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">Our Vision</h2>
+              <motion.h2 
+                className="text-5xl md:text-6xl font-bold text-white mb-6"
+                whileHover={{ 
+                  textShadow: "0 0 8px rgba(230, 27, 35, 0.8)",
+                  transition: { duration: 0.3 }
+                }}
+              >
+                Our Vision
+              </motion.h2>
               <p className="text-xl text-gray-300 leading-relaxed">
                 To be the premier force in esports management, revolutionizing how events are organized, 
                 teams are developed, and audiences engage with competitive gaming.
@@ -53,7 +61,15 @@ const VisionMission = () => {
                   stroke="rgba(230, 27, 35, 0.3)"
                 />
               </svg>
-              <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">Our Mission</h2>
+              <motion.h2 
+                className="text-5xl md:text-6xl font-bold text-white mb-6"
+                whileHover={{ 
+                  textShadow: "0 0 8px rgba(230, 27, 35, 0.8)",
+                  transition: { duration: 0.3 }
+                }}
+              >
+                Our Mission
+              </motion.h2>
               <p className="text-xl text-gray-300 leading-relaxed">
                 To elevate the esports ecosystem by creating professional, engaging, and 
                 memorable experiences for players, audiences, and partners, bridging the gap between 
