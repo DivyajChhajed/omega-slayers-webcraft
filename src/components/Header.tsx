@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
@@ -160,8 +159,6 @@ const Header = () => {
                   </NavigationMenuTrigger>
                   <NavigationMenuContent
                     className="origin-top-center"
-                    align="center"
-                    alignOffset={0}
                   >
                     <motion.ul 
                       className="grid gap-3 p-4 w-[220px] md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]"
