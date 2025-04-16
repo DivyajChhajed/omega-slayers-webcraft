@@ -91,7 +91,7 @@ const Header = () => {
       subItems: [
         { name: 'Major Tournaments', description: 'Flagship competitive events' },
         { name: 'Partner Events', description: 'Collaborations with leading brands' },
-        { name: 'Success Stories', description: 'Teams we've helped succeed' }
+        { name: 'Success Stories', description: "Teams we've helped succeed" }
       ]
     },
     { 

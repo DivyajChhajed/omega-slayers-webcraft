@@ -59,7 +59,7 @@ const Portfolio = () => {
       subtitle: "VIDYAPEETH HYDERABAD",
       image: "/lovable-uploads/4872634d-6965-48bd-8567-41db3943cbe7.png",
       description: {
-        challenge: "With only 2-3 days notice, our team at Omega Slayers was tasked with organizing a large-scale event in Hyderabad for Physics Wallah's "Meet Up with Alakh Sir."",
+        challenge: "With only 2-3 days notice, our team at Omega Slayers was tasked with organizing a large-scale event in Hyderabad for Physics Wallah's \"Meet Up with Alakh Sir.\"",
         execution: "Despite the tight timeline, we flawlessly managed every aspect from stage setup to security ensuring a seamless experience making the event resounding success.",
         outcome: "The event was a tremendous success with outstanding attendance and engagement.",
         stats: [
