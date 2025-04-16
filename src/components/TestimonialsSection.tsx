@@ -1,7 +1,7 @@
 
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { ChevronLeft, ChevronRight, MessageSquareStar } from 'lucide-react';
+import { ChevronLeft, ChevronRight, MessageSquare } from 'lucide-react';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -58,7 +58,7 @@ const TestimonialsSection = () => {
             <h2 className="text-5xl font-bold mb-4">
               <span className="text-[#ff0000]">CLIENTS</span> <span className="text-black">TESTIMONIALS</span>
             </h2>
-            <MessageSquareStar className="w-10 h-10 mx-auto text-[#ff0000]" />
+            <MessageSquare className="w-10 h-10 mx-auto text-[#ff0000]" />
           </div>
 
           <div className="relative bg-gray-100 rounded-xl p-8 md:p-12">
