@@ -149,7 +149,7 @@ const Header = () => {
           />
         </Link>
 
-        {/* Desktop Navigation */}
+        {/* Desktop Navigation - Updated to position dropdowns under their triggers */}
         <div className="hidden md:block">
           <NavigationMenu>
             <NavigationMenuList>
@@ -158,7 +158,11 @@ const Header = () => {
                   <NavigationMenuTrigger className="bg-transparent text-white hover:text-omega-red hover:bg-transparent focus:bg-transparent">
                     {item.name}
                   </NavigationMenuTrigger>
-                  <NavigationMenuContent>
+                  <NavigationMenuContent
+                    className="origin-top-center"
+                    align="center"
+                    alignOffset={0}
+                  >
                     <motion.ul 
                       className="grid gap-3 p-4 w-[220px] md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]"
                       initial={{ opacity: 0, y: 10 }}
