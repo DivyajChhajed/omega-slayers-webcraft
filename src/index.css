@@ -70,6 +70,24 @@
     clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
   }
 
+  /* Custom portfolio item shapes */
+  .clip-portfolio-right {
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%, 0 85%, 15% 85%, 15% 15%, 0 15%);
+  }
+
+  .clip-portfolio-left {
+    clip-path: polygon(0 0, 100% 0, 100% 15%, 85% 15%, 85% 85%, 100% 85%, 100% 100%, 15% 100%);
+  }
+
+  /* Custom testimonial shapes with diagonal cuts */
+  .clip-testimonial-right {
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%);
+  }
+
+  .clip-testimonial-left {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 15% 100%, 0 85%);
+  }
+
   .text-glow {
     text-shadow: 0 0 8px rgba(230, 27, 35, 0.8);
   }

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Play } from 'lucide-react';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
+import { motion } from 'framer-motion';
 
 const PortfolioSection = () => {
   const [category, setCategory] = useState('all');
@@ -17,41 +18,41 @@ const PortfolioSection = () => {
   const portfolioItems = [
     {
       id: 1,
-      title: 'National Gaming Championship',
-      category: 'tournaments',
-      image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&q=80&auto=format&fit=crop',
+      title: 'NVIDIA AI EVENT',
+      category: 'events',
+      image: '/lovable-uploads/a1dace14-a760-40df-b1a0-4c1866550145.png',
       video: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
     },
     {
       id: 2,
-      title: 'Esports Convention 2023',
+      title: 'MSI PRODUCT LAUNCH',
       category: 'events',
-      image: 'https://images.unsplash.com/photo-1551103782-8ab07afd45c1?ixlib=rb-4.0.3&q=80&auto=format&fit=crop',
+      image: '/lovable-uploads/0e63d387-d7a6-4164-a919-fbdfcc02d8f2.png',
     },
     {
       id: 3,
-      title: 'Pro Gamers Summit',
-      category: 'events',
-      image: 'https://images.unsplash.com/photo-1531594652722-322f69df4fcf?ixlib=rb-4.0.3&q=80&auto=format&fit=crop',
+      title: 'OS INVITATIONAL S1',
+      category: 'tournaments',
+      image: '/lovable-uploads/20657afc-0b07-40ca-84ba-ac8ee1b6e6f9.png',
       video: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
     },
     {
       id: 4,
-      title: 'Streamer Collaboration Series',
-      category: 'collaborations',
-      image: 'https://images.unsplash.com/photo-1603481546238-487240415921?ixlib=rb-4.0.3&q=80&auto=format&fit=crop',
+      title: 'PHYSICS WALLAH',
+      category: 'events',
+      image: '/lovable-uploads/6860608e-97b8-4651-a55d-1edc9f7b8767.png',
     },
     {
       id: 5,
-      title: 'Mobile Gaming Tournament',
-      category: 'tournaments',
-      image: 'https://images.unsplash.com/photo-1560253023-3ec5d502959f?ixlib=rb-4.0.3&q=80&auto=format&fit=crop',
+      title: 'PROJECT SYNERGY',
+      category: 'collaborations',
+      image: '/lovable-uploads/82c3ceb0-cd73-4bd2-82ea-993eedbb44b2.png',
     },
     {
       id: 6,
-      title: 'College Esports League',
-      category: 'tournaments',
-      image: 'https://images.unsplash.com/photo-1605236865533-86807e896563?ixlib=rb-4.0.3&q=80&auto=format&fit=crop',
+      title: 'MSI THE LEAP',
+      category: 'events',
+      image: '/lovable-uploads/bfcbc660-fa88-4442-b44a-11b6ffd3a36a.png',
       video: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
     },
   ];
@@ -85,28 +86,47 @@ const PortfolioSection = () => {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredItems.map((item) => (
-            <div key={item.id} className="bg-omega-gray/20 rounded-lg overflow-hidden group relative">
-              <div className="h-64 overflow-hidden">
-                <img 
-                  src={item.image} 
-                  alt={item.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          {filteredItems.map((item, index) => (
+            <motion.div 
+              key={item.id} 
+              className="relative group"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+              viewport={{ once: true }}
+            >
+              <div className="overflow-hidden relative">
+                {/* Custom shape with diagonal cuts and rounded corners */}
+                <div className={`
+                  relative z-10 
+                  ${index % 2 === 0 
+                    ? "clip-portfolio-right" 
+                    : "clip-portfolio-left"}
+                `}>
+                  <img 
+                    src={item.image} 
+                    alt={item.title}
+                    className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                </div>
+                
+                {/* Red block for accent */}
+                <div className={`
+                  absolute bg-omega-red z-0 w-24 h-24 
+                  ${index % 2 === 0 
+                    ? "bottom-0 right-0 rounded-tl-xl" 
+                    : "bottom-0 left-0 rounded-tr-xl"}
+                `}></div>
               </div>
               
-              <div className="absolute inset-0 bg-gradient-to-t from-omega-black to-transparent opacity-60"></div>
-              
-              <div className="absolute bottom-0 left-0 p-6 w-full">
-                <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
-                <p className="text-gray-300 text-sm capitalize">{item.category}</p>
-              </div>
+              <h3 className="text-xl font-bold text-white mt-4">{item.title}</h3>
+              <p className="text-gray-400 text-sm capitalize">{item.category}</p>
               
               {item.video && (
                 <Dialog>
                   <DialogTrigger asChild>
-                    <button className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-omega-red flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
+                    <button className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-omega-red flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300 z-20">
                       <Play className="h-6 w-6" />
                     </button>
                   </DialogTrigger>
@@ -123,7 +143,7 @@ const PortfolioSection = () => {
                   </DialogContent>
                 </Dialog>
               )}
-            </div>
+            </motion.div>
           ))}
         </div>
 
