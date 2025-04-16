@@ -1,7 +1,7 @@
 
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
+import { ChevronLeft, ChevronRight, MessageSquareStar } from 'lucide-react';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -14,19 +14,22 @@ const fadeInUp = {
 
 const testimonials = [
   {
-    quote: "Omega Slayers transformed our gaming tournament into a professional spectacle. Their attention to detail and technical expertise exceeded all expectations.",
-    author: "Sarah Johnson",
-    title: "Marketing Director, TechGiant Games"
+    quote: "I am glad to have Omega Slayers as my marketing agency. Very professional and result driven team. Great hold on online and offline marketing. Omega Slayers understands the unique challenges of our industry and consistently delivers results that exceed our expectations.",
+    author: "Vikash Hisariya",
+    title: "M.D of Vishal Peperipheral",
+    image: "/lovable-uploads/dbb1985f-8fc1-422c-abe9-7f7b73e54307.png"
   },
   {
-    quote: "Working with the Omega Slayers team was seamless. They understood our brand vision and executed flawlessly on our esports series.",
-    author: "Michael Chen",
-    title: "CEO, NextLevel Competitions"
+    quote: "We've been working with Omega Slayers for our digital marketing needs, and they've been exceptional. Their tailored approach to promoting our gaming products has been incredibly effective, driving sales and brand awareness.",
+    author: "Harsh Vardhan Prabhu",
+    title: "Marketing Manager at MSI INDIA",
+    image: "/lovable-uploads/dbb1985f-8fc1-422c-abe9-7f7b73e54307.png"
   },
   {
-    quote: "Our partnership with Omega Slayers has been instrumental in growing our presence in the esports community. Truly world-class professionals.",
-    author: "Elena Rodriguez",
-    title: "Brand Manager, Pulse Energy Drinks"
+    quote: "Omega Slayers doesn't just execute marketing campaigns—they truly understand the gaming industry and leverage their expertise to connect with our target audience authentically.",
+    author: "Team MSI",
+    title: "Brand Management",
+    image: "/lovable-uploads/dbb1985f-8fc1-422c-abe9-7f7b73e54307.png"
   }
 ];
 
@@ -42,7 +45,7 @@ const TestimonialsSection = () => {
   };
 
   return (
-    <section className="py-24 bg-omega-black">
+    <section className="py-24 bg-white">
       <div className="container mx-auto px-4">
         <motion.div
           initial="hidden"
@@ -52,28 +55,35 @@ const TestimonialsSection = () => {
           className="max-w-6xl mx-auto"
         >
           <div className="text-center mb-12">
-            <h2 className="text-5xl font-bold text-white mb-4">Client Testimonials</h2>
-            <p className="text-xl text-gray-400">What our partners say about working with us</p>
+            <h2 className="text-5xl font-bold mb-4">
+              <span className="text-[#ff0000]">CLIENTS</span> <span className="text-black">TESTIMONIALS</span>
+            </h2>
+            <MessageSquareStar className="w-10 h-10 mx-auto text-[#ff0000]" />
           </div>
 
-          <div className="relative bg-omega-gray/20 rounded-xl p-8 md:p-12">
-            <Quote className="text-omega-red/20 w-20 h-20 absolute top-6 left-6" />
+          <div className="relative bg-gray-100 rounded-xl p-8 md:p-12">
+            <div className="absolute -top-4 -right-4 h-8 w-8 bg-[#ff0000]"></div>
             
-            <div className="relative z-10">
-              <p className="text-xl md:text-2xl text-gray-300 mb-8 italic relative z-10">
-                "{testimonials[currentIndex].quote}"
-              </p>
+            <div className="relative z-10 flex flex-col md:flex-row gap-6">
+              <div className="md:w-1/4">
+                <img 
+                  src={testimonials[currentIndex].image} 
+                  alt={testimonials[currentIndex].author}
+                  className="w-24 h-24 rounded-full object-cover mb-4" 
+                />
+                <h3 className="text-xl font-bold text-[#ff0000]">{testimonials[currentIndex].author}</h3>
+                <p className="text-gray-600 text-sm">{testimonials[currentIndex].title}</p>
+              </div>
               
-              <div className="flex flex-col md:flex-row md:items-center justify-between">
-                <div>
-                  <h4 className="text-xl font-semibold text-white">{testimonials[currentIndex].author}</h4>
-                  <p className="text-gray-400">{testimonials[currentIndex].title}</p>
-                </div>
+              <div className="md:w-3/4">
+                <p className="text-xl text-gray-800 mb-8 italic relative z-10">
+                  "{testimonials[currentIndex].quote}"
+                </p>
                 
-                <div className="flex items-center space-x-3 mt-4 md:mt-0">
+                <div className="flex items-center justify-end space-x-3 mt-4">
                   <button 
                     onClick={prevTestimonial}
-                    className="p-2 rounded-full bg-omega-gray/30 text-white hover:bg-omega-red transition-colors"
+                    className="p-2 rounded-full bg-gray-200 text-gray-700 hover:bg-[#ff0000] hover:text-white transition-colors"
                   >
                     <ChevronLeft className="h-5 w-5" />
                   </button>
@@ -82,14 +92,14 @@ const TestimonialsSection = () => {
                       <span 
                         key={index} 
                         className={`block h-2 rounded-full transition-all ${
-                          index === currentIndex ? 'w-6 bg-omega-red' : 'w-2 bg-gray-600'
+                          index === currentIndex ? 'w-8 bg-[#ff0000]' : 'w-2 bg-gray-400'
                         }`}
                       />
                     ))}
                   </div>
                   <button 
                     onClick={nextTestimonial}
-                    className="p-2 rounded-full bg-omega-gray/30 text-white hover:bg-omega-red transition-colors"
+                    className="p-2 rounded-full bg-gray-200 text-gray-700 hover:bg-[#ff0000] hover:text-white transition-colors"
                   >
                     <ChevronRight className="h-5 w-5" />
                   </button>
