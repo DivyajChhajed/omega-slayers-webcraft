@@ -1,6 +1,6 @@
 
 import { Link } from 'react-router-dom';
-import { Facebook, Twitter, Instagram, Twitch, Youtube, ArrowUp } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Twitch, Youtube, ArrowUp, Linkedin } from 'lucide-react';
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -34,12 +34,15 @@ const Footer = () => {
               <a href="#" className="text-gray-400 hover:text-omega-red transition-colors">
                 <Twitter className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-omega-red transition-colors">
+              <a href="https://www.instagram.com/omega.slayers" className="text-gray-400 hover:text-omega-red transition-colors">
                 <Instagram className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-omega-red transition-colors">
-                <Twitch className="h-5 w-5" />
+              <a href="https://www.linkedin.com/company/osesports/" className="text-gray-400 hover:text-omega-red transition-colors">
+                <Linkedin className="h-5 w-5" />
               </a>
+              {/* <a href="https://www.linkedin.com/company/osesports/" className="text-gray-400 hover:text-omega-red transition-colors">
+                <Twitch className="h-5 w-5" />
+              </a> */}
               <a href="#" className="text-gray-400 hover:text-omega-red transition-colors">
                 <Youtube className="h-5 w-5" />
               </a>
