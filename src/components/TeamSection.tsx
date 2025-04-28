@@ -1,6 +1,6 @@
 
 import { useNavigate } from 'react-router-dom';
-import { Linkedin, Twitter, Instagram, ArrowRight } from 'lucide-react';
+import { Linkedin, Twitter, Instagram } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 
@@ -150,7 +150,6 @@ const TeamSection = () => {
             onClick={() => navigate('/team')}
           >
             Meet Our Full Team
-            <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </motion.div>
       </div>
