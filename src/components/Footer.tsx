@@ -28,22 +28,19 @@ const Footer = () => {
               Premier esports management and event organization company dedicated to elevating the gaming experience.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-omega-red transition-colors">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-omega-red transition-colors">
                 <Facebook className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-omega-red transition-colors">
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-omega-red transition-colors">
                 <Twitter className="h-5 w-5" />
               </a>
-              <a href="https://www.instagram.com/omega.slayers" className="text-gray-400 hover:text-omega-red transition-colors">
+              <a href="https://www.instagram.com/omega.slayers" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-omega-red transition-colors">
                 <Instagram className="h-5 w-5" />
               </a>
-              <a href="https://www.linkedin.com/company/osesports/" className="text-gray-400 hover:text-omega-red transition-colors">
+              <a href="https://www.linkedin.com/company/osesports/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-omega-red transition-colors">
                 <Linkedin className="h-5 w-5" />
               </a>
-              {/* <a href="https://www.linkedin.com/company/osesports/" className="text-gray-400 hover:text-omega-red transition-colors">
-                <Twitch className="h-5 w-5" />
-              </a> */}
-              <a href="#" className="text-gray-400 hover:text-omega-red transition-colors">
+              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-omega-red transition-colors">
                 <Youtube className="h-5 w-5" />
               </a>
             </div>

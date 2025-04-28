@@ -54,8 +54,10 @@ const MobileMenu = ({ navItems, isMobileMenuOpen, setIsMobileMenuOpen }: MobileM
               {item.name}
             </Link>
           ))}
-          <Button className="bg-omega-red hover:bg-omega-red/90 text-white mt-4 w-full button-glow rounded-full">
-            Get In Touch
+          <Button className="bg-omega-red hover:bg-omega-red/90 text-white mt-4 w-full button-glow rounded-full" asChild>
+            <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
+              Get In Touch
+            </Link>
           </Button>
         </nav>
       </div>

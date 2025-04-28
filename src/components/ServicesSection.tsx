@@ -2,17 +2,20 @@
 import { ArrowRight, Trophy, Users, Calendar, Tv, Star, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { Link } from 'react-router-dom';
 
 const ServiceCard = ({ 
   title, 
   description, 
   icon: Icon,
-  className
+  className,
+  path
 }: { 
   title: string; 
   description: string; 
   icon: React.ElementType;
   className?: string;
+  path: string;
 }) => {
   return (
     <div className={cn(
@@ -25,10 +28,10 @@ const ServiceCard = ({
       </div>
       <h3 className="text-xl font-bold mb-2 text-white">{title}</h3>
       <p className="text-gray-400 mb-4">{description}</p>
-      <div className="group-hover:text-omega-red transition-colors duration-300 text-white flex items-center font-medium">
+      <Link to={path} className="group-hover:text-omega-red transition-colors duration-300 text-white flex items-center font-medium">
         Learn More
         <ArrowRight className="ml-2 h-4 w-4" />
-      </div>
+      </Link>
     </div>
   );
 };
@@ -38,32 +41,38 @@ const ServicesSection = () => {
     {
       title: "Tournament Management",
       description: "Complete tournament planning, execution and production for all gaming platforms.",
-      icon: Trophy
+      icon: Trophy,
+      path: "/services/tournament-management"
     },
     {
       title: "Team Management",
       description: "Professional esports team management and player development services.",
-      icon: Users
+      icon: Users,
+      path: "/services/team-management"
     },
     {
       title: "Event Organization",
       description: "Full-scale esports events from small local tournaments to major competitions.",
-      icon: Calendar
+      icon: Calendar,
+      path: "/services/event-organization"
     },
     {
       title: "Media Production",
       description: "High-quality streaming, video production and content creation for esports.",
-      icon: Tv
+      icon: Tv,
+      path: "/services/media-production"
     },
     {
       title: "Influencer Collaborations",
       description: "Connect and collaborate with gaming influencers and content creators.",
-      icon: Star
+      icon: Star,
+      path: "/services/influencer-collaborations"
     },
     {
       title: "Gaming Community Building",
       description: "Strategies and tools to build and grow your gaming community.",
-      icon: Zap
+      icon: Zap,
+      path: "/services/gaming-community"
     }
   ];
 
@@ -86,14 +95,17 @@ const ServicesSection = () => {
               description={service.description}
               icon={service.icon}
               className={index === 0 ? "border-omega-red/50" : ""}
+              path={service.path}
             />
           ))}
         </div>
 
         <div className="text-center mt-12">
-          <Button className="bg-omega-red hover:bg-omega-red/90 text-white button-glow">
-            Explore All Services
-            <ArrowRight className="ml-2 h-4 w-4" />
+          <Button className="bg-omega-red hover:bg-omega-red/90 text-white button-glow" asChild>
+            <Link to="/services">
+              Explore All Services
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
           </Button>
         </div>
       </div>

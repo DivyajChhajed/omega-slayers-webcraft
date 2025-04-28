@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ChevronRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -79,12 +80,16 @@ const HeroSection = () => {
             {slides[currentSlide].subtitle}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-omega-red hover:bg-omega-red/90 text-white px-8 py-6 text-lg button-glow">
-              Our Services
+            <Button className="bg-omega-red hover:bg-omega-red/90 text-white px-8 py-6 text-lg button-glow" asChild>
+              <Link to="/services">
+                Our Services
+              </Link>
             </Button>
-            <Button variant="outline" className="border-omega-red text-white hover:bg-omega-red/10 px-8 py-6 text-lg">
-              View Portfolio
-              <ChevronRight className="ml-2 h-5 w-5" />
+            <Button variant="outline" className="border-omega-red text-white hover:bg-omega-red/10 px-8 py-6 text-lg" asChild>
+              <Link to="/portfolio">
+                View Portfolio
+                <ChevronRight className="ml-2 h-5 w-5" />
+              </Link>
             </Button>
           </div>
         </motion.div>

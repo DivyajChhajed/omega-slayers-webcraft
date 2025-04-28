@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 const fadeIn = {
   hidden: { opacity: 0, y: 50 },
@@ -17,12 +18,14 @@ const ServiceHighlights = () => {
     {
       title: "Tournament Management",
       description: "Full-service esports tournament planning, execution, and broadcasting.",
-      image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&q=80&auto=format&fit=crop"
+      image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&q=80&auto=format&fit=crop",
+      path: "/services/tournament-management"
     },
     {
       title: "Team Development",
       description: "Build and nurture professional esports teams with coaching, training, and management.",
-      image: "https://images.unsplash.com/photo-1551103782-8ab07afd45c1?ixlib=rb-4.0.3&q=80&auto=format&fit=crop"
+      image: "https://images.unsplash.com/photo-1551103782-8ab07afd45c1?ixlib=rb-4.0.3&q=80&auto=format&fit=crop",
+      path: "/services/team-development"
     }
   ];
 
@@ -64,9 +67,11 @@ const ServiceHighlights = () => {
               <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
                 <h3 className="text-2xl font-bold text-white mb-2">{service.title}</h3>
                 <p className="text-gray-300 mb-4">{service.description}</p>
-                <Button variant="ghost" className="border-b-2 border-omega-red text-white hover:bg-omega-red/20 px-0 rounded-none">
-                  Learn More 
-                  <ArrowUpRight className="ml-2 h-4 w-4" />
+                <Button variant="ghost" className="border-b-2 border-omega-red text-white hover:bg-omega-red/20 px-0 rounded-none" asChild>
+                  <Link to={service.path}>
+                    Learn More 
+                    <ArrowUpRight className="ml-2 h-4 w-4" />
+                  </Link>
                 </Button>
               </div>
             </motion.div>
