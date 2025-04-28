@@ -11,6 +11,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
+import { cn } from '@/lib/utils';
 
 interface NavBarProps {
   navItems: NavItem[];
@@ -35,13 +36,11 @@ const NavBar = ({ navItems }: NavBarProps) => {
         <NavigationMenu>
           <NavigationMenuList>
             {navItems.map((item) => (
-              <NavigationMenuItem key={item.name}>
+              <NavigationMenuItem key={item.name} className="relative">
                 <NavigationMenuTrigger className="bg-transparent text-white hover:text-omega-red hover:bg-transparent focus:bg-transparent">
                   {item.name}
                 </NavigationMenuTrigger>
-                <NavigationMenuContent
-                  className="origin-top-center"
-                >
+                <NavigationMenuContent className="absolute left-0 origin-top-left">
                   <motion.ul 
                     className="grid gap-3 p-4 w-[220px] md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]"
                     initial={{ opacity: 0, y: 10 }}
@@ -64,15 +63,15 @@ const NavBar = ({ navItems }: NavBarProps) => {
                     {item.subItems.map((subItem) => (
                       <li key={subItem.name}>
                         <NavigationMenuLink asChild>
-                          <a
-                            href="#"
+                          <Link
+                            to={subItem.path || "#"}
                             className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-omega-red/10 hover:text-omega-red focus:bg-accent focus:text-accent-foreground"
                           >
                             <div className="text-sm font-medium leading-none text-white">{subItem.name}</div>
                             <p className="line-clamp-2 text-sm leading-snug text-white/70">
                               {subItem.description}
                             </p>
-                          </a>
+                          </Link>
                         </NavigationMenuLink>
                       </li>
                     ))}
@@ -90,7 +89,10 @@ const NavBar = ({ navItems }: NavBarProps) => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          <Button className="bg-omega-red hover:bg-omega-red/90 text-white button-glow rounded-full">
+          <Button 
+            className="bg-omega-red hover:bg-omega-red/90 text-white button-glow rounded-full"
+            onClick={() => window.location.href = '/contact'}
+          >
             Get In Touch
           </Button>
         </motion.div>

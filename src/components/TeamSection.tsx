@@ -1,11 +1,15 @@
 
+import { useNavigate } from 'react-router-dom';
 import { Linkedin, Twitter, Instagram } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Button } from '@/components/ui/button';
 
 const TeamMember = ({ 
   name, 
   position, 
   image, 
-  socials
+  socials,
+  index
 }: { 
   name: string; 
   position: string; 
@@ -14,10 +18,17 @@ const TeamMember = ({
     linkedin?: string;
     twitter?: string;
     instagram?: string;
-  }
+  };
+  index: number;
 }) => {
   return (
-    <div className="bg-omega-gray/20 rounded-lg overflow-hidden group">
+    <motion.div 
+      className="bg-omega-gray/20 rounded-lg overflow-hidden group"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ delay: index * 0.1, duration: 0.5 }}
+    >
       <div className="h-80 overflow-hidden relative">
         <img 
           src={image} 
@@ -49,11 +60,13 @@ const TeamMember = ({
           )}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
 const TeamSection = () => {
+  const navigate = useNavigate();
+  
   const teamMembers = [
     {
       name: "Alex Rodriguez",
@@ -98,13 +111,19 @@ const TeamSection = () => {
   return (
     <section className="py-20 bg-omega-black">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+        >
           <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white">Meet Our <span className="text-omega-red">Team</span></h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
             Our team of gaming enthusiasts and industry professionals is dedicated to creating 
             exceptional esports experiences.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {teamMembers.map((member, index) => (
@@ -114,9 +133,26 @@ const TeamSection = () => {
               position={member.position}
               image={member.image}
               socials={member.socials}
+              index={index}
             />
           ))}
         </div>
+        
+        <motion.div 
+          className="text-center mt-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5, duration: 0.5 }}
+        >
+          <Button 
+            className="bg-omega-red hover:bg-omega-red/90 text-white button-glow"
+            onClick={() => navigate('/team')}
+          >
+            Meet Our Full Team
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </Button>
+        </motion.div>
       </div>
     </section>
   );
