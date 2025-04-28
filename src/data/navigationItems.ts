@@ -2,7 +2,6 @@
 export interface SubItem {
   name: string;
   description: string;
-  path?: string;
 }
 
 export interface NavItem {
@@ -13,114 +12,74 @@ export interface NavItem {
 }
 
 export const navItems: NavItem[] = [
-  {
-    name: 'Home',
+  { 
+    name: 'Home', 
     path: '/',
-    description: 'Back to our homepage',
+    description: 'Return to our homepage',
     subItems: [
-      {
-        name: 'Services',
-        description: 'Discover our esports services',
-        path: '/services',
-      },
-      {
-        name: 'About Us',
-        description: 'Learn more about our company',
-        path: '/about',
-      },
-      {
-        name: 'Contact',
-        description: 'Get in touch with our team',
-        path: '/contact',
-      },
-    ],
+      { name: 'Latest Events', description: 'Check out our most recent tournaments' },
+      { name: 'Featured Games', description: 'Popular titles we specialize in' },
+      { name: 'News & Updates', description: 'Stay current with Omega Slayers' }
+    ]
   },
-  {
-    name: 'Services',
+  { 
+    name: 'About', 
+    path: '/about',
+    description: 'Learn about our company',
+    subItems: [
+      { name: 'Our Story', description: 'The journey of Omega Slayers' },
+      { name: 'Our Vision', description: 'What drives us forward' },
+      { name: 'Core Values', description: 'The principles we live by' }
+    ]
+  },
+  { 
+    name: 'Services', 
     path: '/services',
-    description: 'Our comprehensive esports management services',
+    description: 'Explore our offerings',
     subItems: [
-      {
-        name: 'Tournament Management',
-        description: 'Professional tournament planning and execution',
-        path: '/services/tournament-management',
-      },
-      {
-        name: 'Team Management',
-        description: 'Esports team development and management',
-        path: '/services/team-management',
-      },
-      {
-        name: 'Event Organization',
-        description: 'Full-scale gaming event planning and execution',
-        path: '/services/event-organization',
-      },
-    ],
+      { name: 'Tournament Management', description: 'Full-service event organization' },
+      { name: 'Team Development', description: 'Professional coaching & training' },
+      { name: 'Content Creation', description: 'High-quality esports content' }
+    ]
   },
-  {
-    name: 'Portfolio',
+  { 
+    name: 'Portfolio', 
     path: '/portfolio',
-    description: 'Explore our past events, tournaments, and collaborations',
+    description: 'See our past work',
     subItems: [
-      {
-        name: 'Tournaments',
-        description: 'Our tournament portfolio and achievements',
-        path: '/portfolio?category=tournaments',
-      },
-      {
-        name: 'Events',
-        description: 'Gaming events we have organized',
-        path: '/portfolio?category=events',
-      },
-      {
-        name: 'Collaborations',
-        description: 'Our brand and influencer collaborations',
-        path: '/portfolio?category=collaborations',
-      },
-    ],
+      { name: 'Major Tournaments', description: 'Flagship competitive events' },
+      { name: 'Partner Events', description: 'Collaborations with leading brands' },
+      { name: 'Success Stories', description: "Teams we've helped succeed" }
+    ]
   },
-  {
-    name: 'Team',
+  { 
+    name: 'Team', 
     path: '/team',
-    description: 'Meet our passionate team of gaming professionals',
+    description: 'Meet our experts',
     subItems: [
-      {
-        name: 'Leadership',
-        description: 'Our company leadership and management team',
-        path: '/team?group=leadership',
-      },
-      {
-        name: 'Tournament Staff',
-        description: 'Our tournament operations specialists',
-        path: '/team?group=tournament',
-      },
-      {
-        name: 'Join Our Team',
-        description: 'Career opportunities with Omega Slayers',
-        path: '/careers',
-      },
-    ],
+      { name: 'Leadership', description: 'Our executive team' },
+      { name: 'Event Managers', description: 'Tournament specialists' },
+      { name: 'Coaches & Analysts', description: 'Gaming professionals' }
+    ]
   },
-  {
-    name: 'Partners',
+  { 
+    name: 'Partners', 
     path: '/partners',
-    description: 'Our brand partnerships and collaborations',
+    description: 'Our collaborators',
     subItems: [
-      {
-        name: 'Gaming Brands',
-        description: 'Our partnerships with gaming companies',
-        path: '/partners?type=gaming',
-      },
-      {
-        name: 'Sponsors',
-        description: 'Our event and tournament sponsors',
-        path: '/partners?type=sponsors',
-      },
-      {
-        name: 'Become a Partner',
-        description: 'Partnership opportunities with Omega Slayers',
-        path: '/partners/join',
-      },
-    ],
+      { name: 'Gaming Publishers', description: 'Official game partners' },
+      { name: 'Sponsors', description: 'Brands that support us' },
+      { name: 'Technology Partners', description: 'Powering our operations' }
+    ]
   },
+  { 
+    name: 'Contact', 
+    path: '/contact',
+    description: 'Get in touch with us',
+    subItems: [
+      { name: 'General Inquiries', description: 'Questions about our services' },
+      { name: 'Event Booking', description: 'Host a tournament with us' },
+      { name: 'Career Opportunities', description: 'Join our growing team' }
+    ]
+  }
 ];
