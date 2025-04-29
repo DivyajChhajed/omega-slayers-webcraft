@@ -25,7 +25,7 @@ const ServiceHighlights = () => {
       title: "Team Development",
       description: "Build and nurture professional esports teams with coaching, training, and management.",
       image: "https://images.unsplash.com/photo-1551103782-8ab07afd45c1?ixlib=rb-4.0.3&q=80&auto=format&fit=crop",
-      path: "/services/team-development"
+      path: "/services/team-management"
     }
   ];
 

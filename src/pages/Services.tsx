@@ -126,7 +126,7 @@ const Services = () => {
               </p>
               <Link 
                 to="/contact"
-                className="inline-block bg-omega-red text-white px-8 py-3 rounded-full hover:bg-omega-red/90 transition-colors"
+                className="inline-block bg-omega-red text-white px-8 py-3 rounded-full hover:bg-omega-red/90 transition-colors button-glow"
               >
                 Get In Touch
               </Link>
