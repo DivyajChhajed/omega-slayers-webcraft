@@ -69,12 +69,12 @@ const Header = () => {
             : "bg-transparent"
         )}
       >
-        {/* Logo - Mobile & Desktop */}
+        {/* Logo - Mobile & Desktop - Now larger */}
         <Link to="/" className="relative z-50 flex items-center gap-2">
           <motion.img 
             src="/lovable-uploads/9d380099-8cb4-4a90-bda3-ef227b54930e.png" 
             alt="Omega Slayers Logo" 
-            className="h-8 sm:h-10"
+            className="h-10 sm:h-14"
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
           />

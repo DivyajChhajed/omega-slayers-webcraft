@@ -25,18 +25,7 @@ const NavBar = ({ navItems }: NavBarProps) => {
   }, []);
   
   return (
-    <div className="hidden md:flex justify-between items-center w-full">
-      {/* Logo */}
-      <Link to="/" className="flex items-center gap-2">
-        <motion.img 
-          src="/lovable-uploads/9d380099-8cb4-4a90-bda3-ef227b54930e.png" 
-          alt="Omega Slayers Logo" 
-          className="h-8 md:h-10 lg:h-12"
-          whileHover={{ scale: 1.05 }}
-          transition={{ type: "spring", stiffness: 400, damping: 10 }}
-        />
-      </Link>
-
+    <div className="hidden md:flex justify-end items-center w-full">
       {/* Desktop Navigation */}
       <div className="hidden md:flex items-center space-x-3 lg:space-x-6">
         {navItems.map((item) => (
@@ -57,7 +46,7 @@ const NavBar = ({ navItems }: NavBarProps) => {
       </div>
 
       {/* Contact Button - Desktop */}
-      <div className="hidden md:block">
+      <div className="hidden md:block ml-6">
         <motion.div
           className="nav-item"
           whileHover={{ scale: 1.05 }}
