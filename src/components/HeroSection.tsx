@@ -1,9 +1,13 @@
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -19,6 +23,7 @@ const fadeIn = {
 
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const sectionRef = useRef<HTMLElement>(null);
   
   const slides = [
     {
@@ -42,16 +47,50 @@ const HeroSection = () => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 5000);
+    
     return () => clearInterval(interval);
   }, [slides.length]);
 
+  useEffect(() => {
+    // GSAP animations
+    if (sectionRef.current) {
+      gsap.to(".slide-bg", {
+        opacity: 0,
+        duration: 0.8,
+        ease: "power2.inOut"
+      });
+      
+      gsap.to(`.slide-bg-${currentSlide}`, {
+        opacity: 1,
+        duration: 0.8,
+        ease: "power2.inOut"
+      });
+      
+      // Hero content animations
+      gsap.fromTo(".hero-title", 
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 0.8, ease: "power3.out", delay: 0.2 }
+      );
+      
+      gsap.fromTo(".hero-subtitle", 
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 0.8, ease: "power3.out", delay: 0.4 }
+      );
+      
+      gsap.fromTo(".hero-buttons", 
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 0.8, ease: "power3.out", delay: 0.6 }
+      );
+    }
+  }, [currentSlide]);
+
   return (
-    <section className="relative h-screen overflow-hidden bg-omega-black">
+    <section ref={sectionRef} className="relative h-screen overflow-hidden bg-omega-black">
       {/* Background slides */}
       {slides.map((slide, index) => (
         <div 
           key={index}
-          className={`absolute inset-0 transition-opacity duration-1000 ${
+          className={`slide-bg slide-bg-${index} absolute inset-0 transition-opacity duration-1000 ${
             currentSlide === index ? 'opacity-100' : 'opacity-0'
           }`}
         >
@@ -60,32 +99,32 @@ const HeroSection = () => {
           <img 
             src={slide.image} 
             alt={slide.title} 
-            className="h-full w-full object-cover"
+            className="h-full w-full object-cover object-center"
           />
         </div>
       ))}
 
       {/* Content */}
-      <div className="relative z-20 h-full flex flex-col justify-center items-center container mx-auto px-4 pt-20">
+      <div className="relative z-20 h-full flex flex-col justify-center items-center container mx-auto px-4 pt-16 md:pt-20">
         <motion.div 
-          className="max-w-3xl text-center"
+          className="max-w-3xl text-center px-4"
           initial="hidden"
           animate="visible"
           variants={fadeIn}
         >
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 text-white leading-tight">
+          <h1 className="hero-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-3 md:mb-4 text-white leading-tight">
             {slides[currentSlide].title}
           </h1>
-          <p className="text-xl md:text-2xl text-gray-300 mb-8">
+          <p className="hero-subtitle text-lg sm:text-xl md:text-2xl text-gray-300 mb-6 md:mb-8">
             {slides[currentSlide].subtitle}
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-omega-red hover:bg-omega-red/90 text-white px-8 py-6 text-lg button-glow" asChild>
+          <div className="hero-buttons flex flex-col sm:flex-row gap-4 justify-center">
+            <Button className="bg-omega-red hover:bg-omega-red/90 text-white px-6 py-5 md:px-8 md:py-6 text-base md:text-lg button-glow" asChild>
               <Link to="/services">
                 Our Services
               </Link>
             </Button>
-            <Button variant="outline" className="border-omega-red text-white hover:bg-omega-red/10 px-8 py-6 text-lg" asChild>
+            <Button variant="outline" className="border-omega-red text-white hover:bg-omega-red/10 px-6 py-5 md:px-8 md:py-6 text-base md:text-lg" asChild>
               <Link to="/portfolio">
                 View Portfolio
                 <ChevronRight className="ml-2 h-5 w-5" />

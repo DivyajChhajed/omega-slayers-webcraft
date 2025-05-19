@@ -15,6 +15,12 @@ import Team from "./pages/Team";
 import Partners from "./pages/Partners";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+
+// Register GSAP plugins
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 const queryClient = new QueryClient();
 
@@ -27,7 +33,18 @@ const App = () => {
       setShowLoading(false);
     }, 5000);
     
-    return () => clearTimeout(timer);
+    // Initialize GSAP smooth scrolling
+    gsap.config({
+      nullTargetWarn: false
+    });
+    
+    // Custom scroll behavior
+    document.documentElement.classList.add('smooth-scroll');
+    
+    return () => {
+      clearTimeout(timer);
+      document.documentElement.classList.remove('smooth-scroll');
+    };
   }, []);
   
   return (

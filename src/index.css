@@ -53,6 +53,10 @@
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background text-foreground;
     @apply font-sans;
@@ -102,11 +106,6 @@
   }
   
   /* Loading screen animations */
-  #svg {
-    stroke-dasharray: 4500;
-    stroke-dashoffset: 0;
-  }
-  
   @keyframes draw {
     0% {
       stroke-dashoffset: 4500;
@@ -121,10 +120,39 @@
     overflow: hidden;
   }
   
-  .logo-name {
+  .logo-text {
     letter-spacing: 12px;
     text-transform: uppercase;
     margin-left: 20px;
     font-weight: bold;
+  }
+
+  /* GSAP utility classes */
+  .gsap-reveal {
+    visibility: hidden;
+  }
+
+  /* Media queries for responsive design */
+  @media (max-width: 640px) {
+    .clip-diagonal {
+      clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+    }
+    
+    .clip-diagonal-reverse {
+      clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 100%);
+    }
+  }
+
+  /* Better scrolling experience */
+  .smooth-scroll {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Handle text overflow better on small screens */
+@media (max-width: 768px) {
+  h1, h2 {
+    word-break: break-word;
+    hyphens: auto;
   }
 }

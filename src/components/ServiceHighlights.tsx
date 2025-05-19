@@ -1,8 +1,13 @@
 
-import { motion } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const fadeIn = {
   hidden: { opacity: 0, y: 50 },
@@ -14,6 +19,46 @@ const fadeIn = {
 };
 
 const ServiceHighlights = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const titleRef = useRef<HTMLDivElement>(null);
+  const cardsRef = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+    if (sectionRef.current && titleRef.current && cardsRef.current) {
+      // Title animation
+      gsap.fromTo(titleRef.current,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          scrollTrigger: {
+            trigger: titleRef.current,
+            start: "top bottom-=100",
+            toggleActions: "play none none none"
+          }
+        }
+      );
+      
+      // Cards animation
+      gsap.fromTo(".service-card",
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          stagger: 0.2,
+          duration: 0.8,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: cardsRef.current,
+            start: "top bottom-=50",
+            toggleActions: "play none none none"
+          }
+        }
+      );
+    }
+  }, []);
+
   const services = [
     {
       title: "Tournament Management",
@@ -30,42 +75,30 @@ const ServiceHighlights = () => {
   ];
 
   return (
-    <section className="py-24 clip-diagonal bg-gradient-to-br from-omega-black to-omega-gray/40 relative">
+    <section ref={sectionRef} className="py-16 md:py-24 clip-diagonal bg-gradient-to-br from-omega-black to-omega-gray/40 relative">
       <div className="absolute inset-0 bg-[url('/lovable-uploads/c962cff5-b071-46c9-8358-f796039c6b85.png')] opacity-10 bg-cover bg-center"></div>
       <div className="container mx-auto px-4">
-        <motion.div 
-          className="max-w-3xl mx-auto text-center mb-16"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={fadeIn}
-        >
-          <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">Our Services</h2>
-          <p className="text-xl text-gray-300 mb-4">
+        <div ref={titleRef} className="max-w-3xl mx-auto text-center mb-12 md:mb-16 px-4">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">Our Services</h2>
+          <p className="text-lg md:text-xl text-gray-300 mb-4">
             We provide comprehensive esports solutions that help brands, teams, and events reach their full potential
           </p>
-        </motion.div>
+        </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div ref={cardsRef} className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
           {services.map((service, index) => (
-            <motion.div 
+            <div 
               key={index}
-              className="group relative overflow-hidden rounded-lg"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-              variants={fadeIn}
-              whileHover={{ y: -10 }}
-              transition={{ duration: 0.3 }}
+              className="service-card group relative overflow-hidden rounded-lg"
             >
               <div className="absolute inset-0 bg-gradient-to-t from-omega-black via-transparent to-transparent z-10"></div>
               <img 
                 src={service.image} 
                 alt={service.title} 
-                className="w-full h-[400px] object-cover transition-transform duration-700 group-hover:scale-105"
+                className="w-full h-[250px] sm:h-[300px] md:h-[400px] object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
-                <h3 className="text-2xl font-bold text-white mb-2">{service.title}</h3>
+              <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 z-20">
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-2">{service.title}</h3>
                 <p className="text-gray-300 mb-4">{service.description}</p>
                 <Button variant="ghost" className="border-b-2 border-omega-red text-white hover:bg-omega-red/20 px-0 rounded-none" asChild>
                   <Link to={service.path}>
@@ -74,7 +107,7 @@ const ServiceHighlights = () => {
                   </Link>
                 </Button>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
