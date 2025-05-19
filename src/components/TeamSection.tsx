@@ -56,9 +56,9 @@ const TeamMember = ({
 const TeamSection = () => {
   const teamMembers = [
     {
-      name: "Alex Rodriguez",
+      name: "Akshay Kumar",
       position: "CEO & Founder",
-      image: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&q=80&auto=format&fit=crop",
+      image: "/lovable-uploads/257e27df-8e19-45cf-bc20-46a9a22c36a8.png",
       socials: {
         linkedin: "#",
         twitter: "#",
@@ -66,27 +66,27 @@ const TeamSection = () => {
       }
     },
     {
-      name: "Sarah Johnson",
+      name: "Rahul Gupta",
       position: "Tournament Director",
-      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&q=80&auto=format&fit=crop",
+      image: "/lovable-uploads/25d1ca9d-b1d1-4965-867f-c1e68f065f7b.png",
       socials: {
         linkedin: "#",
         twitter: "#"
       }
     },
     {
-      name: "Michael Chang",
+      name: "Aryan Singh",
       position: "Head of Production",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&q=80&auto=format&fit=crop",
+      image: "/lovable-uploads/87515d48-382f-4290-922d-b1457cc74b9c.png",
       socials: {
         linkedin: "#",
         instagram: "#"
       }
     },
     {
-      name: "Emily Walker",
+      name: "Priya Sharma",
       position: "Marketing Director",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&q=80&auto=format&fit=crop",
+      image: "/lovable-uploads/82fc3d1a-47f1-4b5c-8ea0-de3d74406a82.png",
       socials: {
         linkedin: "#",
         twitter: "#",

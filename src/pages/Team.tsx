@@ -60,9 +60,9 @@ const TeamMember = ({
 const Team = () => {
   const teamMembers = [
     {
-      name: "Alex Rodriguez",
+      name: "Akshay Kumar",
       position: "CEO & Founder",
-      image: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&q=80&auto=format&fit=crop",
+      image: "/lovable-uploads/257e27df-8e19-45cf-bc20-46a9a22c36a8.png",
       socials: {
         linkedin: "#",
         twitter: "#",
@@ -70,27 +70,27 @@ const Team = () => {
       }
     },
     {
-      name: "Sarah Johnson",
+      name: "Rahul Gupta",
       position: "Tournament Director",
-      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&q=80&auto=format&fit=crop",
+      image: "/lovable-uploads/25d1ca9d-b1d1-4965-867f-c1e68f065f7b.png",
       socials: {
         linkedin: "#",
         twitter: "#"
       }
     },
     {
-      name: "Michael Chang",
+      name: "Aryan Singh",
       position: "Head of Production",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&q=80&auto=format&fit=crop",
+      image: "/lovable-uploads/87515d48-382f-4290-922d-b1457cc74b9c.png",
       socials: {
         linkedin: "#",
         instagram: "#"
       }
     },
     {
-      name: "Emily Walker",
+      name: "Priya Sharma",
       position: "Marketing Director",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&q=80&auto=format&fit=crop",
+      image: "/lovable-uploads/82fc3d1a-47f1-4b5c-8ea0-de3d74406a82.png",
       socials: {
         linkedin: "#",
         twitter: "#",
@@ -98,40 +98,12 @@ const Team = () => {
       }
     },
     {
-      name: "David Kim",
+      name: "Vikram Patel",
       position: "Technical Director",
-      image: "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-4.0.3&q=80&auto=format&fit=crop",
+      image: "/lovable-uploads/3d3f93e4-e6df-465e-b075-6d3a0ce24996.png",
       socials: {
         linkedin: "#",
         twitter: "#"
-      }
-    },
-    {
-      name: "Jessica Martinez",
-      position: "Player Relations",
-      image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&q=80&auto=format&fit=crop",
-      socials: {
-        linkedin: "#",
-        instagram: "#"
-      }
-    },
-    {
-      name: "Robert Wilson",
-      position: "Lead Game Analyst",
-      image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&q=80&auto=format&fit=crop",
-      socials: {
-        twitter: "#",
-        instagram: "#"
-      }
-    },
-    {
-      name: "Anna Thompson",
-      position: "Community Manager",
-      image: "https://images.unsplash.com/photo-1534751516642-a1af1ef26a56?ixlib=rb-4.0.3&q=80&auto=format&fit=crop",
-      socials: {
-        linkedin: "#",
-        twitter: "#",
-        instagram: "#"
       }
     }
   ];
