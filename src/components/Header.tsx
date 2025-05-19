@@ -63,24 +63,24 @@ const Header = () => {
     )}>
       <div 
         className={cn(
-          "container mx-auto rounded-full transition-all duration-300 flex items-center justify-between px-4 sm:px-6 py-2 sm:py-3",
+          "container mx-auto rounded-full transition-all duration-300 flex flex-col sm:flex-row items-center justify-center sm:justify-between px-4 sm:px-6 py-2 sm:py-3",
           isScrolled 
             ? "bg-omega-black/80 backdrop-blur-md shadow-lg border border-omega-gray/20" 
             : "bg-transparent"
         )}
       >
         {/* Logo - Mobile & Desktop - Now larger */}
-        <Link to="/" className="relative z-50 flex items-center gap-2">
+        <Link to="/" className="relative z-50 mb-4 sm:mb-0">
           <motion.img 
             src="/lovable-uploads/9d380099-8cb4-4a90-bda3-ef227b54930e.png" 
             alt="Omega Slayers Logo" 
-            className="h-10 sm:h-14"
+            className="h-12 sm:h-16"
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
           />
         </Link>
 
-        {/* Desktop Navigation */}
+        {/* Desktop Navigation - Centered */}
         <NavBar navItems={navItems} />
         
         {/* Mobile Menu */}

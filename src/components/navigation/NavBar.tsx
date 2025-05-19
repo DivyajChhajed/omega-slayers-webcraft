@@ -25,7 +25,7 @@ const NavBar = ({ navItems }: NavBarProps) => {
   }, []);
   
   return (
-    <div className="hidden md:flex justify-end items-center w-full">
+    <div className="hidden md:flex justify-center items-center w-full">
       {/* Desktop Navigation */}
       <div className="hidden md:flex items-center space-x-3 lg:space-x-6">
         {navItems.map((item) => (
