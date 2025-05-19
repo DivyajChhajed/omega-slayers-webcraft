@@ -56,7 +56,7 @@ const TeamMember = ({
 const TeamSection = () => {
   const teamMembers = [
     {
-      name: "Akshay Kumar",
+      name: "Rishenra Kumar",
       position: "CEO & Founder",
       image: "/lovable-uploads/257e27df-8e19-45cf-bc20-46a9a22c36a8.png",
       socials: {

@@ -63,7 +63,7 @@ const LoadingScreen = () => {
               className="logo-text font-display text-white text-4xl sm:text-6xl tracking-widest uppercase font-bold"
               initial={{ y: 50, opacity: 0 }}
             >
-              Omega Slayers
+          
             </motion.h1>
           </div>
         </motion.div>
