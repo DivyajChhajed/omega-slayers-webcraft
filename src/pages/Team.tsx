@@ -61,7 +61,7 @@ const Team = () => {
   const teamMembers = [
     {
       name: "Rishendra Sharma",
-      position: "CEO",
+      position: "CEO & Founder",
       image: "/lovable-uploads/257e27df-8e19-45cf-bc20-46a9a22c36a8.png",
       socials: {
         linkedin: "#",
@@ -70,7 +70,7 @@ const Team = () => {
       }
     },
     {
-      name: "Rahul Gupta",
+      name: "Name",
       position: "Tournament Director",
       image: "/lovable-uploads/25d1ca9d-b1d1-4965-867f-c1e68f065f7b.png",
       socials: {
@@ -79,7 +79,7 @@ const Team = () => {
       }
     },
     {
-      name: "Aryan Singh",
+      name: "Name",
       position: "Head of Production",
       image: "/lovable-uploads/87515d48-382f-4290-922d-b1457cc74b9c.png",
       socials: {
@@ -88,7 +88,7 @@ const Team = () => {
       }
     },
     {
-      name: "Priya Sharma",
+      name: "Name",
       position: "Marketing Director",
       image: "/lovable-uploads/82fc3d1a-47f1-4b5c-8ea0-de3d74406a82.png",
       socials: {
@@ -98,8 +98,8 @@ const Team = () => {
       }
     },
     {
-      name: "Vikram Patel",
-      position: "Technical Director",
+      name: "Vedprakash Bhagade",
+      position: "Operations",
       image: "/lovable-uploads/3d3f93e4-e6df-465e-b075-6d3a0ce24996.png",
       socials: {
         linkedin: "#",
