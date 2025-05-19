@@ -22,23 +22,21 @@ const ContactSection = () => {
 
   const handleVerifyEmail = async () => {
     try {
-      const res = await axios.post('http://localhost:4000/api/auth/sendOtp', { email: formData.email });
-      console.log(res.data);
-      if (res.status === 200) {
-        setOpenOTPModal(true);
-        toast({
-          title: "OTP Sent!",
-          description: "Please check your email for the OTP.",
-          variant: "default",
-        });
-        setOtp(res.data.otp); // Assuming the OTP is returned in the response
-      } else {
-        toast({
-          title: "Error!",
-          description: "Failed to send OTP. Please try again.",
-          variant: "destructive",
-        });
-      }
+      // For demonstration purposes, we'll mock the API call
+      // In a real application, this would make an actual API call
+      console.log("Sending verification email to:", formData.email);
+      
+      // Mock response
+      const mockOtp = Math.floor(100000 + Math.random() * 900000).toString();
+      
+      setOpenOTPModal(true);
+      toast({
+        title: "OTP Sent!",
+        description: "Please check your email for the OTP.",
+        variant: "default",
+      });
+      setOtp(mockOtp); // Using mock OTP for demonstration
+      console.log("Generated OTP:", mockOtp);
     } catch (error) {
       console.error('Error sending OTP:', error);
       toast({
@@ -50,7 +48,7 @@ const ContactSection = () => {
   };
 
   const handleOtpVerification = () => {
-    if (inputOtp == otp) {
+    if (inputOtp === otp) {
       setEmailVerified(true);
       setOpenOTPModal(false);
       toast({
@@ -75,48 +73,34 @@ const ContactSection = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Here you can send the form data to your backend or API
-    // For example, using axios to send a POST request
+    // Demo mode - simulating API call
     try {
-        const res = await axios.post('http://localhost:4000/api/auth/sendData', formData);
-        if (res.status === 200) {
-          toast({
-            title: "Success!",
-            description: "Your message has been sent successfully.",
-            variant: "default",
-          });
-        } else {
-          toast({
-            title: "Error!",
-            description: "Failed to send message. Please try again.",
-            variant: "destructive",
-          });
-        }
+      console.log("Form submitted with data:", formData);
+      
+      toast({
+        title: "Success!",
+        description: "Your message has been sent successfully.",
+        variant: "default",
+      });
+      
+      // Reset form after successful submission
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: '',
+      });
+      setEmailVerified(false);
+      setOtp('');
+      setInputOtp('');
     } catch (error) {
-        console.error('Error sending message:', error);
-        toast({
-          title: "Error!",
-          description: "Something went wrong. Please try again.",
-          variant: "destructive",
-        });
+      console.error('Error sending message:', error);
+      toast({
+        title: "Error!",
+        description: "Something went wrong. Please try again.",
+        variant: "destructive",
+      });
     }
-
-
-    toast({
-      title: "Message Sent!",
-      description: "We'll get back to you as soon as possible.",
-      variant: "default",
-    });
-
-    setFormData({
-      name: '',
-      email: '',
-      subject: '',
-      message: '',
-    });
-    setEmailVerified(false);
-    setOtp('');
-    setInputOtp('');
   };
 
   return (
